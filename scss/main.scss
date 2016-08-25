@@ -1,0 +1,300 @@
+@import "base_styles/_base-styles.scss";
+@import "fonts/_font-styling.scss";
+@import "colors/_color-variables.scss";
+
+* {
+    box-sizing: border-box;  
+
+    @include desktop {
+        border: 1px solid transparent;
+    }
+}
+
+body {
+    width: 100%;
+    background-color: $body-background-color;
+}
+
+.main-nav {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto 50px auto;
+
+    @include tablet {
+        width: 95%;
+    }
+}
+
+#top-page-name{
+    font-size: $base-font-size + 1.5em;
+
+    @include desktop {
+        float: left;
+    }
+}
+
+.nav-links {
+    font-size: $base-font-size + 0.3em;
+    & ul {
+        padding: 0;
+    }
+    & li {
+        list-style-type: none;
+        background-color: $main-background-color;
+        margin-bottom: 5px;
+        padding: 15px 0;
+
+            @include tablet {
+                background-color: transparent;
+                display: inline-block;
+                text-align: center;
+                margin: 0px 10px;
+                margin-bottom: 20px;
+            }
+
+            @include desktop {
+                float: right;
+            }
+    }
+    & a {
+        text-decoration: none;
+        transition: all .5s ease;
+    }
+}
+
+a {
+    &:link {
+        color: $not-clicked-link;
+    }
+    &:visited {
+        color: $clicked-link;
+    }
+    &:hover {
+       color: $hover-link; 
+    }
+    &:active {
+        color: $link-click-hold;  
+    }
+}
+
+.profile-image {
+    max-width: 80%;
+
+    @include tablet {
+        max-width: $full-max-width - 65%;
+        float: right;
+        margin-bottom: 25px;
+        padding-left: 10px;
+    }
+
+    @include desktop {
+        float: right;
+    }
+}
+
+.paragraph-texts {
+    font-family: $paragraph-style;
+    font-size: $base-font-size + 0.125em;
+}
+
+.header-names, .nav-links, .nav-links-bottom {
+    font-family: $headings;
+}
+
+.header-names {
+    font-size: $base-font-size + 0.5em;
+}
+#top-section-name-portfolio {
+    font-size: $base-font-size + 0.75em;
+    padding-bottom: 25px;    
+}
+
+.portfolio-section {
+    text-align: center;
+    background-color: $main-background-color;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-top: 5px solid $border-color;
+
+}
+
+.portfolio-images {
+    max-width: $full-max-width - 10%;
+}
+
+.skills-section {
+    font-size: $base-font-size + 0.25em;
+    border: 5px solid $border-color;
+    border-left: none;
+    border-right: none;
+    & p {
+        font-size: $base-font-size - 0.15em;
+    }
+}
+
+.contact-section {
+    text-align: center;
+    padding-top: 25px;
+}
+
+.footer-links {
+    & ul {
+        padding: 0;
+    }
+    & li{
+        list-style-type: none;
+        margin-bottom: 5px;
+        padding: 15px 0;
+    }
+    & a {
+        text-decoration: none;
+    }
+}
+
+.footer-names {
+    font-family: $headings;
+}
+
+footer {
+    clear: both;
+    border-top: lightgrey 1px solid;
+    margin-bottom: 70px;
+}
+.footer-left {
+    float: left;
+    margin-left: 5px;
+}
+
+.footer-right {
+    float: right;
+    margin-right: 5px;
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.contact {
+    max-width: $full-max-width - 30%;
+    margin: 0 auto;
+    & a {
+        text-decoration: none;
+    }
+
+}
+
+.nav-links-bottom {
+    font-size: $base-font-size - 0.2em;
+
+    @include tablet {
+        float: right;
+    }
+
+    & ul {
+        padding: 0;
+    }
+    & li {
+        list-style-type: none;
+        background-color: $main-background-color;
+        margin-bottom: 5px;
+        padding: 15px 0;
+        display: none;
+
+        @include tablet {    
+            display: inline-block;
+            float: left;
+            margin: 0px 10px;
+        }
+    }
+    & a{
+        text-decoration: none;
+
+        @include tablet {
+            transition: all .5s ease;
+        }
+    }
+}
+
+.desktop-layout {
+    display: none;
+
+    @include desktop {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    
+    
+    .tablet-portfolio-1 {
+        @include column-seperation(50%, left);
+    }
+
+    .tablet-portfolio-2 {
+        @include column-seperation(50%, right);
+    }
+
+    .portfolio-section, .main-nav{
+        clear: both;
+    }
+
+    .skills-section p, .contact-section p{
+        max-width: 65%;
+        margin: 2px auto;   
+    }
+
+    .contact p{
+        margin: 25px 195px;
+    }
+
+    .profile-info {
+        max-width: $full-max-width - 35%;
+        float: left;
+        text-align: left;
+        padding-right: 10px;
+        
+    }
+
+    nav.nav-links:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    %column-float {
+        max-width: 33%;
+        float: left;
+    }    
+    
+    .tablet-mobile-layout {
+        display: none;
+    }
+ 
+    header  {
+        max-width: $full-max-width - 10%;
+        margin-left: 5%;
+    }
+
+    .flattener {
+        max-width: $full-max-width;
+        display: block;
+    }
+
+    .main-content {
+        max-width: $full-max-width;
+    }
+
+    .column-1 {
+        @extend %column-float;
+    }
+
+    .column-2 {
+        @extend %column-float;
+    }
+    
+    .column-3 {
+        @extend %column-float;
+    }
+}

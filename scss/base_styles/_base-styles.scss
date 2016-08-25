@@ -1,0 +1,23 @@
+$full-max-width: 100%;
+
+$tablet-width   : 768px;
+$desktop-width  : 1024px;
+
+@mixin column-seperation($max-width, $float) {
+    max-width: $max-width;
+    float: $float;
+}
+
+/*MEDIA QUERIES*/
+
+@mixin tablet {
+    @media screen and (min-width: #{$tablet-width}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
